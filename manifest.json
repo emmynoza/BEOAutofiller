@@ -4,7 +4,7 @@
   "manifest_version": 3,
   "description": "Autofills BEO software fields from an Excel file",
   "permissions": ["scripting", "activeTab", "storage"],
-  "host_permissions": ["<all_urls>"],
+  "host_permissions": ["https://www.restaurantcateringsystems.com/admin/?form=beoreport*"],
   "action": {
     "default_popup": "src/popup.html"
   },
@@ -18,8 +18,8 @@
   },
   "content_scripts": [
     {
-      "matches": ["<all_urls>"],
-      "js": ["src/content.js"]
+      "matches": ["https://www.restaurantcateringsystems.com/admin/?form=beoreport*"],
+      "js": ["src/content.js", "src/dropdown.js"]
     }
   ]
 }
