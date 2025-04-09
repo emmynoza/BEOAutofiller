@@ -2,12 +2,12 @@ let activeTextarea = null;
 
 const dropdownOptions = {
   "Who is providing NA beverages?": [
-    "DRR Providing",
+    "<u>DRR Providing</u>",
     "Water",
     "Sweet Tea",
     "Unsweet Tea",
     "Lemonade",
-    "Client-provided",
+    "<u>Client-provided</u>",
     "Coffee",
     "Juice",
     "Sodas",
@@ -20,7 +20,7 @@ const dropdownOptions = {
     "Moving from cocktail hour to reception",
     "DRR providing water for entire event",
     "DRR providing dispenser(s) for client-provided drinks",
-    "client providing coffee station; DRR to set-up and maintain",
+    "Client providing coffee station; DRR to set-up and maintain",
     "DRR providing extra galvanized containers",
   ],
   "Who is bartending?": [
@@ -89,7 +89,7 @@ const dropdownOptions = {
     "Client-provided disposables",
     "Rented",
   ],
-  "Entrée Plates and Utensils": [
+  "Entree Plates and Utensils": [
     "DRR <b>Basic Black</b> disposables",
     "DRR <b>Silver</b> disposables",
     "DRR <b>Gold/b> disposables",
@@ -112,11 +112,11 @@ const dropdownOptions = {
   ],
   "Table Cloths, What type?": [
     "DRR Black Spandex Linens",
-    " Venue-provided",
+    "Venue-provided",
     "Client-provided",
     "Rented",
   ],
-  "Full list of Rented Items": [
+  "Full List of Rented Items": [
     "Appetizer Plates",
     "Appetizer Forks/Utensils",
     "Dinner Plates",
@@ -200,46 +200,69 @@ function findLabelForTextarea(textarea) {
 function createCheckboxDropdown(options, textarea) {
   const dropdown = document.createElement("ul");
   dropdown.id = "custom-dropdown";
-  dropdown.style.position = "absolute";
-  dropdown.style.background = "white";
-  dropdown.style.border = "1px solid #ccc";
-  dropdown.style.padding = "8px";
-  dropdown.style.zIndex = "1000";
-  dropdown.style.boxShadow = "2px 2px 10px rgba(0,0,0,0.2)";
-  dropdown.style.maxHeight = "200px";
-  dropdown.style.overflowY = "auto"; // Scroll if too many options
+  
 
   options.forEach(option => {
    
-
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
+    checkbox.style.display ="inline-block";
     checkbox.value = option;
     checkbox.id = `checkbox-${option}`;
     checkbox.className = "dropdown-checkbox";
-
+    checkbox.style.visibility = "hidden";
+    
     const label = document.createElement("label");
     label.htmlFor = `checkbox-${option}`;
+    label.style.display = "inline-block";
     label.textContent = option;
 
     const list = document.createElement("li");
+    list.className = "dropdown-list-item";
     list.appendChild(checkbox);
     list.appendChild(label);
+
+    list.addEventListener("click", (e) => {
+      console.log(e.target)
+      if (e.target.tagName == "input") {
+        checkbox.checked = !checkbox.checked;
+      }
+      if (checkbox.checked) {
+        list.classList.add("selected");
+      } else {
+        list.classList.remove("selected");
+      }
+    })
+
     dropdown.appendChild(list);
   });
+
+  
 
   // Submit button
   const submitButton = document.createElement("button");
   submitButton.textContent = "Submit";
   submitButton.style.marginTop = "8px";
   submitButton.onclick = () => {
+    
     const selectedValues = Array.from(dropdown.querySelectorAll("input:checked"))
       .map(input => input.value)
       .join("\n");
-    textarea.value = selectedValues;
+
+    let currentValue = textarea.value;
+    textarea.value = `${currentValue}\n${selectedValues}`;
+    
+    textarea.focus();
+    textarea.dispatchEvent(new Event("input", { bubbles: true }));
+    // textarea.value= selectedValues || currentValue;
+    
+    textarea.dispatchEvent(new Event("change", { bubbles: true }));
+    
     dropdown.remove();
   };
 
   dropdown.appendChild(submitButton);
   return dropdown;
 }
+
+

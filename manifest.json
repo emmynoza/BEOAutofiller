@@ -19,7 +19,8 @@
   "content_scripts": [
     {
       "matches": ["https://www.restaurantcateringsystems.com/admin/?form=beoreport*"],
-      "js": ["src/content.js", "src/dropdown.js"]
+      "js": ["src/content.js", "src/dropdown.js"],
+      "css": ["src/dropdown.css"]
     }
   ]
 }
