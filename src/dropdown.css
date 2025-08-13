@@ -26,7 +26,8 @@
 .dropdown-list-item{
     padding-top: 4px;
     list-style-type: none;
-    border: 1px solid red;
+    margin-right: 4px;
+    
 }
 .dropdown-list-item:hover{
     background-color: #ececec;
