@@ -4,7 +4,7 @@
   "manifest_version": 3,
   "description": "Autofills BEO software fields from an Excel file",
   "permissions": ["scripting", "activeTab", "storage"],
-  "host_permissions": ["https://www.restaurantcateringsystems.com/admin/?form=beoreport*", "https://www.restaurantcateringsystems.com/admin/?form=customerorderdetails&id=*"],
+  "host_permissions": ["https://www.restaurantcateringsystems.com/admin/?form=beoreport*", "https://www.restaurantcateringsystems.com/admin/?form=customerorderdetails=*"],
   "action": {
     "default_popup": "src/popup.html"
   },
@@ -18,9 +18,10 @@
   },
   "content_scripts": [
     {
-      "matches": ["https://www.restaurantcateringsystems.com/admin/?form=beoreport*", "https://www.restaurantcateringsystems.com/admin/?form=customerorderdetails&id=*"], 
+      "matches": ["https://www.restaurantcateringsystems.com/admin/?form=beoreport*", "https://www.restaurantcateringsystems.com/admin/?form=customerorderdetails*"], 
       "js": ["src/extension.js","src/content.js", "src/dropdown.js"],
-      "css": ["src/dropdown.css"]
+      "css": ["src/dropdown.css"],
+      "run_at": "document_idle"
     }
   ]
 }
