@@ -111,24 +111,24 @@ const dropdownOptions = {
     "Rented Bar Glasses",
   ],
   "Buffet Tables": [
-    "DRR (3) 6ft tables for buffet",
-    "Venue providing tables for buffet",
-    "Client providing tables for buffet",
+    "DRR (3) 6ft tables",
+    "Venue providing tables",
+    "Client providing tables",
   ],
   "Appetizer Table": [
-    "DRR (1) 6ft table for appetizer station",
-    "Venue providing table for appetizer station"],
+    "DRR (1) 6ft table",
+    "Venue providing table"],
   "NA Beverage Table": [
-    "DRR (1) 6ft table for NA beverage station",
-    "Venue providing table for NA beverage station",
+    "DRR (1) 6ft table",
+    "Venue providing table",
   ],
   "Bar Tables": [
-    "DRR (2) 6ft tables for bar",
-    "Venue providing tables for bar",
+    "DRR (2) 6ft tables",
+    "Venue providing tables",
   ],
   "Dessert Table": [
-    "DRR (1) 6ft table for dessert station",
-    "Venue providing table for dessert station",
+    "DRR (1) 6ft table",
+    "Venue providing table",
   ],
   "Table Cloths, What type?": [
     "DRR Black Spandex Linens",
