@@ -57,7 +57,7 @@ if (textAreaLabel && textAreaLabel.textContent.split('review')[0].trim() === "Pl
                 padding: 5px;
                 z-index: 1000;
                 background-color: white; /* Ensure text is readable */
-                border: 1px solid #ccc;
+                border: 1px solid #5e5e5e;
                 box-shadow: 0 4px 8px rgba(0,0,0,0.2);
             `;
             
@@ -71,6 +71,7 @@ if (textAreaLabel && textAreaLabel.textContent.split('review')[0].trim() === "Pl
             textArea.style.cssText = ''; 
             
             toggleButton.textContent = 'O'; // Change button back to Open
+    
         }
     };
 

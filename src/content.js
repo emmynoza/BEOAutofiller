@@ -61,6 +61,7 @@ async function autofillForm(data) {
         "NA Beverage Table": "NA Beverage Table",
         "Bar Tables": "Bar Tables",
         "Dessert Table": "Dessert Table",
+        "Table Cloths, What type?": "Table Cloths, What type?",
         "Who is setting up guest tables and chairs?": "Who is setting up guest tables and chairs?",
         "Who is responsible for final clean-up after guest departure?:": "Who is responsible for final clean-up after guest departure?:",
         "Are there any other services that Roadhouse is responsible for?": "Are there any other services that Roadhouse is responsible for?"
